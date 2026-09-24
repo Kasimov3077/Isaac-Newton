@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-size: 1em;
+    font-family: "Underdog", system-ui;
+}
+header {
+    background-color:antiquewhite;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+footer {
+    background-color: antiquewhite;
+    padding: 20px;
+}
+.about {
+    background-color: rgb(231, 238, 195);
+    padding: 20x;
+    text-align: center;
+}
+.articles {
+    background-color: rgb(231, 164, 164);
+}
+h2 {
+    text-align: center;
+    font-size: 36px;
+}
+a {
+    font-size: 32px;
+}
+h1 {
+    font-size: 16px;
+    content: \F5D2;
+    font-family: "bootstrap-icons";
+    margin-right: 10px;
+    text-align: center;
+    font-size: 36px;
+}
+p {
+    background-color: rgb(131, 126, 126);
+    font-size: 1.5rem;
+    margin-bottom: 1.3rem;
+    line-height: 2rem;
+    text-align: justify;
+}
+main {
+    background-color: rgb(131, 126, 126);;
+}
+h2 {
+    font-size: 2rem;
+    color: bisque;
+}
+ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+ul, ol {
+    padding-left: 50px;
+}
+/* a:link {
+    color: yellow;
+}
+a:visited {
+    color: aqua;
+}
+a:focus {
+    color: greenyellow;
+}
+a:hover {
+    color: red;
+}
+a:active {
+    color: plum;
+} */
+header a {
+    color: darkblue;
+    text-decoration: none;
+    text-transform:  uppercase;
+}
+header a:hover
+header a:focus
+header a:active {
+    text-decoration: underline;
+}
+h2::after {
+    content: "new";
+    font-size: 10px;
+    color: purple;
+    margin-left: 10px;
+}
+h2::before {
+    content: \F5D2;
+    font-family: "bootstrap-icons";
+    margin-right: 10px;
+}
+section {
+    padding: 20px;
+}
+p {
+    padding: 20px;
+}
+h3 {
+    text-align: center;
+    font-size: 36px;
+}
+form {
+    width: 270px;
+    border-radius: 30px;
+    padding: 30px;
+    background-color: crimson;
+    margin: 10px auto;
+}
+input {
+    border: 1px solid darkblue;
+    background-color: crimson;
+    padding: 5px;
+    border-radius: 5px;
+}
+input[type=submit] {
+    background-color: blue;
+    color: azure;
+}
+input[type=submit]:hover {
+    background-color: darkblue;
+}
+input[type=checkbox]{
+    accent-color: yellow;
+}
+textarea,
+select {
+    background-color: lightblue;
+    border-radius: 5px;
+    padding: 5px;
+    color: darkblue;
+    border: 1px solid darkblue;
+    margin-top: 10px;
+}
