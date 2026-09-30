@@ -1,0 +1,682 @@
+/* ==========================================================
+   Сайт об ученом (Джеймс Гослинг) — style.css
+   Работает с ТЕКУЩИМИ index.html и article1-4.html без правок HTML.
+   Пр. 2: два шрифта Google Fonts — заголовки: Underdog (подключен
+   в <head>), основной текст: PT Serif (подключается ниже через @import).
+   @import должен стоять в самом начале файла.
+   ========================================================== */
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+/* иконки Bootstrap Icons (логотип, иконка у заголовков) */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+/* ---------- Переменные и сброс ---------- */
+:root {
+    --c-header: antiquewhite;
+    --c-intro: rgb(231, 238, 195);
+    --c-articles: rgb(246, 218, 218);
+    --c-page: #ebe6df;
+    --c-text: #2a2118;
+    --c-link: #1d3a8a;
+    --c-accent: #b3122f;
+    --c-border: #4a3b2a;
+    --font-head: "Underdog", system-ui, sans-serif;
+    --font-text: "PT Serif", Georgia, "Times New Roman", serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 1em;
+}
+
+body {
+    font-family: var(--font-text);
+    font-size: 1rem;
+    color: var(--c-text);
+    background-color: var(--c-page);
+}
+
+main {
+    background-color: var(--c-page);
+}
+
+section {
+    padding: 20px;
+}
+
+/* ---------- Заголовки (Пр. 2, задание 2) ---------- */
+h1, h2, h3 {
+    font-family: var(--font-head);
+    font-weight: 400;
+    text-align: center;
+    line-height: 1.25;
+    margin-bottom: 0.6rem;
+}
+
+h1 {
+    font-size: 2.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+h2 {
+    font-size: 2rem;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 8px;
+    text-decoration-color: var(--c-accent);
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-style: italic;
+    text-transform: none;
+}
+
+/* иконка перед заголовками разделов (bootstrap-icons) */
+main h2::before {
+    content: "\F5D2";
+    font-family: "bootstrap-icons";
+    font-style: normal;
+    font-weight: 400;
+    margin-right: 10px;
+    color: var(--c-accent);
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* ---------- Основной текст ---------- */
+p {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: var(--c-text);
+    padding: 12px 20px;
+    margin-bottom: 0.8rem;
+    text-align: justify;
+}
+
+/* Текст в статьях лежит одним <p> с переносами строк в исходнике.
+   pre-line сохраняет эти переносы, поэтому абзацы визуально разделены,
+   а HTML менять не нужно. */
+.articles p,
+.content p {
+    white-space: pre-line;
+    max-width: 75ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Пр. 2: первые строки параграфов статей — разреженный текст */
+.articles p::first-line {
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+/* Пр. 2: параграфы на английском (когда у абзаца задан lang="en") */
+p:lang(en) {
+    font-style: italic;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #12315f;
+}
+
+/* нестандартный тег <p1> в article4 / indexcopy */
+p1 {
+    display: block;
+    font-family: var(--font-head);
+    font-size: 1.75rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* ---------- Ссылки (Пр. 2, задание 1) ---------- */
+a {
+    color: var(--c-link);
+    font-size: 1.125rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+a:hover {
+    color: var(--c-accent);
+    text-decoration-thickness: 2px;
+}
+
+a:focus {
+    color: var(--c-accent);
+    outline: 3px solid #f2b705;
+    outline-offset: 3px;
+    border-radius: 3px;
+}
+
+a:active {
+    color: plum;
+}
+
+/* «заголовки» статей, оформленные как <a> без href (article3, article4) */
+a:not([href]) {
+    display: block;
+    font-family: var(--font-head);
+    font-size: 1.75rem;
+    color: var(--c-text);
+    text-align: center;
+    text-decoration: none;
+}
+
+/* ---------- Шапка и меню ---------- */
+header {
+    background-color: var(--c-header);
+    text-align: center;
+    padding: 40px 20px;
+    border-bottom: 4px solid var(--c-border);
+}
+
+header img {
+    display: block;
+    margin: 16px auto;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+header a {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 1rem;
+    color: darkblue;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 2px solid transparent;
+    border-radius: 6px;
+}
+
+header a:hover,
+header a:focus,
+header a:active {
+    color: #fff;
+    background-color: darkblue;
+    text-decoration: underline;
+    outline: none;
+}
+
+header a:focus {
+    border-color: #f2b705;
+}
+
+/* ---------- Разделы ---------- */
+.content,
+.about,
+.contentik {
+    background-color: var(--c-intro);
+}
+
+.contentik {
+    padding: 0; /* пустая секция на страницах статей */
+}
+
+.about {
+    text-align: center;
+}
+
+.articles {
+    background-color: var(--c-articles);
+}
+
+.feedback {
+    background-color: var(--c-header);
+}
+
+/* Пр. 2: селекторы потомков — раздел «Введение» */
+.content p {
+    color: #1f3311;
+    background-color: rgba(255, 255, 255, 0.55);
+    border-left: 5px solid #6b8e23;
+    border-radius: 0 8px 8px 0;
+}
+
+.content a {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+/* ---------- Список «Информация» (главная) ---------- */
+#info li {
+    list-style: none;
+    padding: 10px 20px;
+    margin: 0 auto;
+    max-width: 75ch;
+    border-radius: 6px;
+}
+
+#info li a {
+    display: inline-block;
+    font-size: 1.25rem;
+    text-decoration: none;
+    border-bottom: 2px dotted var(--c-link);
+}
+
+#info li a:hover {
+    color: #fff;
+    background-color: var(--c-link);
+    border-bottom-style: solid;
+}
+
+#info li a:focus {
+    color: #fff;
+    background-color: var(--c-accent);
+}
+
+/* Пр. 2: чересстрочное оформление списка.
+   <li> лежат прямо в <section>, поэтому используем nth-of-type. */
+#info li:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+#info li:nth-of-type(even) {
+    background-color: rgba(179, 18, 47, 0.12);
+}
+
+/* Пр. 2: псевдоэлемент «Важно!» для пункта «Список терминов».
+   Сработает, как только в списке появится ссылка на страницу терминов
+   (например, href="terms.html" или "article4.html" -> поменяйте селектор). */
+#info a[href*="term"]::after {
+    content: "Важно!";
+    display: inline-block;
+    margin-left: 12px;
+    padding: 2px 10px;
+    font-size: 0.8rem;
+    color: #fff;
+    background-color: var(--c-accent);
+    border: 2px solid #7a0b20;
+    border-radius: 12px;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+/* ---------- Изображения (Пр. 1, задание 5; Пр. 2) ---------- */
+img {
+    max-width: 100%;
+    border: 3px solid var(--c-border);
+    border-radius: 12px;
+    box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.35);
+}
+
+main img,
+figure img {
+    display: block;
+    margin: 20px auto;
+}
+
+figcaption {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.95rem;
+    padding: 6px 0 12px;
+}
+
+/* Пр. 2: соседние селекторы — отступ сверху у абзаца после картинки */
+img + p,
+a + p,
+figure + p {
+    margin-top: 30px;
+}
+
+/* логотип-иконка в шапке (svg, article4) */
+header img[src$=".svg"] {
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+}
+
+/* ---------- Подвал ---------- */
+footer {
+    background-color: var(--c-header);
+    padding: 20px;
+    border-top: 4px solid var(--c-border);
+    text-align: center;
+}
+
+footer h2,
+footer h3 {
+    font-size: 1.25rem;
+    text-decoration: none;
+    text-transform: none;
+    letter-spacing: normal;
+    font-style: normal;
+}
+
+footer h3 a,
+footer p a {
+    font-size: 1.125rem;
+}
+
+footer p {
+    padding: 4px 0;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+footer ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+/* Пр. 2: селекторы потомков — иконки в футере (рамка) */
+footer ol img {
+    height: 60px;
+    width: 60px;
+    padding: 8px;
+    background-color: #fff;
+    border: 3px solid var(--c-border);
+    border-radius: 50%;
+    box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+}
+
+footer ol a:hover img,
+footer ol a:focus img {
+    transform: scale(1.1);
+    border-color: var(--c-accent);
+}
+
+/* ---------- Таблицы (Пр. 3, задание 1) ---------- */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: #fff;
+    border: 4px solid var(--c-border);
+}
+
+caption {
+    caption-side: top;
+    font-family: var(--font-head);
+    font-size: 1.5rem;
+    padding: 10px;
+}
+
+th,
+td {
+    border: 2px solid var(--c-border);
+    padding: 8px 12px;
+    text-align: left;
+    font-size: 1rem;
+}
+
+thead th {
+    background-color: var(--c-border);
+    color: #fff;
+}
+
+/* чересстрочное оформление строк */
+tbody tr:nth-child(even) {
+    background-color: rgba(179, 18, 47, 0.1);
+}
+
+/* первый столбец */
+th:first-child,
+td:first-child {
+    font-weight: 700;
+    background-color: rgba(107, 142, 35, 0.2);
+}
+
+/* последняя строка */
+tbody tr:last-child {
+    font-weight: 700;
+    border-top: 4px double var(--c-border);
+}
+
+/* ---------- Форма (Пр. 3) ---------- */
+form,
+#contact-form {
+    width: 100%;
+    max-width: 420px;
+    margin: 10px auto;
+    padding: 30px;
+    background-color: #fff;
+    border: 3px solid var(--c-border);
+    border-radius: 24px;
+    box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+form label,
+.form__item label {
+    display: inline-block;
+    margin: 10px 0 4px;
+    font-weight: 700;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+    padding: 8px 10px;
+    font-family: var(--font-text);
+    font-size: 1rem;
+    color: darkblue;
+    background-color: lightblue;
+    border: 1px solid darkblue;
+    border-radius: 5px;
+}
+
+textarea {
+    min-height: 120px;
+    margin-top: 10px;
+    resize: vertical;
+}
+
+select {
+    margin-top: 10px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #4b6a8f;
+    opacity: 1;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+    outline: 3px solid #f2b705;
+    background-color: #fff;
+}
+
+input[type="checkbox"] {
+    accent-color: crimson;
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    margin-top: 12px;
+    vertical-align: middle;
+}
+
+input[type="submit"] {
+    width: 100%;
+    margin-top: 16px;
+    padding: 10px;
+    font-family: var(--font-head);
+    font-size: 1.125rem;
+    color: azure;
+    background-color: blue;
+    border: 1px solid darkblue;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+input[type="submit"]:hover,
+#contact-form input[type="submit"]:hover {
+    background-color: darkblue;
+}
+
+input[type="submit"]:focus {
+    outline: 3px solid #f2b705;
+    outline-offset: 2px;
+}
+
+/* валидация (Пр. 3, задание 3 + лекция 5): подсвечиваем только заполненные поля */
+input:not([type="checkbox"]):not([type="submit"]):not(:placeholder-shown):invalid {
+    background-color: rgba(128, 0, 0, 0.2);
+}
+
+input:not([type="checkbox"]):not([type="submit"]):not(:placeholder-shown):valid {
+    background-color: rgba(0, 128, 0, 0.2);
+}
+
+/* ---------- Текстовые теги (Пр. 1, задание 2) ---------- */
+blockquote {
+    max-width: 75ch;
+    margin: 16px auto;
+    padding: 14px 24px;
+    font-size: 1.125rem;
+    font-style: italic;
+    line-height: 1.7;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-left: 6px solid var(--c-accent);
+    border-radius: 0 10px 10px 0;
+}
+
+blockquote cite {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.95rem;
+    font-style: normal;
+    text-align: right;
+    color: #5a4a3a;
+}
+
+q {
+    font-style: italic;
+    color: var(--c-accent);
+}
+
+kbd {
+    padding: 2px 8px;
+    font-family: "Courier New", monospace;
+    font-size: 0.95rem;
+    background-color: #f4f4f4;
+    border: 1px solid #999;
+    border-bottom-width: 3px;
+    border-radius: 5px;
+}
+
+code {
+    padding: 2px 6px;
+    font-family: "Courier New", monospace;
+    font-size: 0.95em;
+    color: #12315f;
+    background-color: rgba(18, 49, 95, 0.1);
+    border-radius: 4px;
+}
+
+mark {
+    padding: 0 4px;
+    background-color: #ffe066;
+}
+
+ins {
+    color: #1b6b2f;
+    text-decoration: underline;
+}
+
+del {
+    color: #8a1c1c;
+}
+
+.articles ol,
+.articles ul {
+    max-width: 75ch;
+    margin: 0 auto 1rem;
+    padding-left: 3rem;
+    font-size: 1.125rem;
+    line-height: 1.7;
+}
+
+/* оглавление */
+.toc {
+    max-width: 75ch;
+    margin: 0 auto 20px;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 2px solid var(--c-border);
+    border-radius: 12px;
+}
+
+.toc h2 {
+    font-size: 1.5rem;
+}
+
+/* список определений (страница терминов) */
+dl {
+    max-width: 75ch;
+    margin: 0 auto;
+}
+
+dt {
+    margin-top: 18px;
+    font-family: var(--font-head);
+    font-size: 1.3rem;
+    color: var(--c-accent);
+}
+
+dd {
+    margin-left: 1.5rem;
+    padding: 4px 0 4px 14px;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    border-left: 3px solid var(--c-border);
+}
+
+/* ---------- Мобильная версия ---------- */
+@media (max-width: 600px) {
+    h1 { font-size: 1.6rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.2rem; }
+    p  { font-size: 1rem; padding: 10px; }
+    section { padding: 12px; }
+    header ul { flex-direction: column; align-items: center; }
+    form, #contact-form { padding: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+}
+
+/* ==========================================================
+   Пр. 2: специфичность (a = id, b = классы/псевдоклассы, c = теги)
+   body                   0-0-1 =   1
+   .pink                  0-1-0 =  10
+   #logo                  1-0-0 = 100
+   #mainnav ul            1-0-1 = 101
+   #mainnav .active       1-1-0 = 110
+   #mainnav a:hover       1-1-1 = 111
+   #mainnav ul li.active  1-1-2 = 112
+   ========================================================== */
