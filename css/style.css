@@ -62,7 +62,7 @@ ul {
 ul, ol {
     padding-left: 50px;
 }
-/* a:link {
+a:link {
     color: yellow;
 }
 a:visited {
@@ -76,7 +76,7 @@ a:hover {
 }
 a:active {
     color: plum;
-} */
+} 
 header a {
     color: darkblue;
     text-decoration: none;
@@ -139,4 +139,63 @@ select {
     color: darkblue;
     border: 1px solid darkblue;
     margin-top: 10px;
+}
+#info a[href*="term"]::after {
+    content: "Важно!";
+    display: inline-block;
+    margin-left: 12px;
+    padding: 2px 10px;
+    font-size: 0.8rem;
+    color: rgb(231, 238, 195);
+    background-color: blue;
+    border: 2px solid crimson;
+    border-radius: 12px;
+}
+.articles p::first-line {
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+p:lang(en) {
+    font-style: italic;
+    font-family: Georgia, "Times New Roman", serif;
+    color: darkblue;
+}
+footer nav a{
+    font-size: 1.5em;
+   }
+   #main_menu h2{
+    font-weight: normal;
+   }
+   .content img{
+    width:500px;
+    float: left;
+   }
+.content + p {
+    margin-top: 20px;
+}
+h1 {
+    font-size: 50px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+}
+
+h2 {
+    font-size: 2rem;
+    text-decoration: underline;
+    text-underline-offset: 8px;
+}
+
+h3 {
+    font-size: 45px;
+    font-style: italic;
+    text-transform: none;
+}
+tr:nth-child(even){
+    background-color:#8642da;
+}
+td:first-child {
+    background-color: blue;
+}
+td:last-child {
+    background-color: red;
 }

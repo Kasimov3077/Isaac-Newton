@@ -10,6 +10,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Underdog&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" type="image/ico" sizes="32x32" href="icons/favicon.ico">
+    <link rel="icon" type="image/ico" sizes="16x16" href="icons/favicon.ico">
+    <link rel="shortcut icon" href="icons/favicon.ico">
+    <meta property="og:title" content="Гослинг Джеймс">
+    <meta property="og:site_name" content="Гослинг Джеймс">
+    <meta property="og:url" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
 </head>
 <body>
     <header>
@@ -43,6 +52,7 @@
             <li><a href="article1.html">Биография</a></li>
             <li><a href="article2.html">Публикации</a></li>
             <li><a href="article3.html">Примечания</a></li>
+            <li><a href="terms.html">Список терминов</a></li>
         </section>
         <section class="feedback" id="feedback">
             <h2>Обратная связь</h2>
@@ -51,12 +61,16 @@
                 <input type="text" placeholder="Логин" name="login" id="login" required><br>
                 <label for="pass">Введите пароль</label><br>
                 <input type="password" placeholder="Пароль" name="pass" id="pass" required><br>
-                <select name="city" id="city">
+                <label for="email">Введите e-mail</label><br>
+                <input type="email" placeholder="E-mail" name="email" id="email" required><br>
+                <label for="city">Выберите город</label><br>
+                <select name="city" id="city"required>
                     <option value=""selected disabled>Выберите город</option>
                     <option value="chel">Челябинск</option>
                     <option value="msk">Москва</option>
                     <option value="sam">Самара</option>
                 </select><br>
+                <label for="message">Оставьте комментарий с пожеланиями для улучшения сайта</label><br>
                 <textarea name="message" id="message" cols="30" rows="10">
                 </textarea><br>
                 <input type="checkbox" id="agreement"
